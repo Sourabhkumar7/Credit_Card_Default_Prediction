@@ -1,3 +1,16 @@
+from src.credit_card_prediction.components.data_ingestion import DataIngestion
+
+from src.credit_card_prediction.components.data_transformation import DataTransformation
+from sklearn.metrics import accuracy_score
+from sklearn.linear_model import LogisticRegression
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.svm import SVC
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.naive_bayes import GaussianNB
+from sklearn.ensemble import GradientBoostingClassifier
+from sklearn.neural_network import MLPClassifier
+from src.credit_card_prediction.components.model_trainer import ModelTrainer
 
 import pandas as pd
 import numpy as np
@@ -31,12 +44,16 @@ class ModelTrainer:
                 test_array[:,-1]
             )
 
-            models={
-            'LinearRegression':LinearRegression(),
-            'Lasso':Lasso(),
-            'Ridge':Ridge(),
-            'Elasticnet':ElasticNet()
-        }
+            models = {
+    'Logistic Regression': LogisticRegression(max_iter=1000),
+    'Decision Tree': DecisionTreeClassifier(),
+    'Random Forest': RandomForestClassifier(),
+    'SVM': SVC(),
+    'KNN': KNeighborsClassifier(),
+    'Naive Bayes': GaussianNB(),
+    'Gradient Boosting': GradientBoostingClassifier(),
+    'Neural Network': MLPClassifier(max_iter=1000)
+}
             
             model_report:dict=evaluate_model(X_train,y_train,X_test,y_test,models)
             print(model_report)
