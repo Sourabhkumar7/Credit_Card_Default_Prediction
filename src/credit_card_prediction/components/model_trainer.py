@@ -10,7 +10,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.neural_network import MLPClassifier
-from src.credit_card_prediction.components.model_trainer import ModelTrainer
+#from src.credit_card_prediction.components.model_trainer import ModelTrainer
 
 import pandas as pd
 import numpy as np
